@@ -11,7 +11,9 @@
         </p>
       <% end %>
     </div>
-
+    <div>
+    </div>
+      <%= form.text_field :user_id, type: "hidden", value: current_user.id %>
     <div>
     <% invalid = post.errors.include?(:description) %>
       <%= form.label :description, style: "display: block" %>
