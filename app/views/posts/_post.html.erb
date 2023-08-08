@@ -1,25 +1,16 @@
-<div id="<%= dom_id post %>" class="post-container" >
+<div id="<%= dom_id post %>" class="text-center post-container col-6" style="margin: auto;">
   <p>
     <%= post.title %>
   </p>
-
   <p>
     <%= post.description %>
   </p>
-
   <p>
-    <%= post.keyword %>
+    <%= link_to "", post.user, class:"post-link", style:"z-index:" %>
   </p>
-
-  <p>
-    <%= post.user.email %>
-  </p>
-
-  <p>
-    <%= link_to "", post, class: "post-link" %>
-  </p>
-
   <% post.images.each do |image| %>
-    <%= image_tag(image, style: "max-width: 50%; height: auto; object-fit: contain;") %>
+    <%= image_tag(image, style: "
+      max-width: 50%;
+  height: auto; object-fit: contain;") %>
   <% end %>
 </div>
