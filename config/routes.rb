@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   resources :likes, only: [:create, :destroy]
-
   resources :comments
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -15,9 +14,15 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show]
 
-  get 'home/about'
+  post 'users/:id/follow', to: "users#follow", as: "follow"
+  post 'users/:id/unfollow', to: "users#unfollow", as: "unfollow"
+  post 'users/:id/accept', to: "users#accept", as: "accept"
+  post 'users/:id/decline', to: "users#decline", as: "decline"
+  post 'users/:id/cancel', to: "users#cancel", as: "cancel"
 
+  get 'home/about'
   get 'posts/myposts'
   resources :posts
+
   root "posts#index"
 end
